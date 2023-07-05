@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-
+@auth
 <main class="container">
     <section>
         <div class="titlebar">
@@ -79,5 +79,24 @@
             </div> --}}
         </div>
     </section>
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="btn-link">Logout</button>
+    </form>
 </main>
+@endauth
+@guest
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">You are not logged in</h4>
+                    <p class="card-text">Please <a href="{{ route('login') }}">login</a> to access the product functionality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endguest
 @endsection
