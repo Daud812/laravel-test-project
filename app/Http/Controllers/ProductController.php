@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index(){
         $products = Product::orderby('created_at')->get();
         return view('product.index', ['products' => $products]);
@@ -40,6 +40,7 @@ class ProductController extends Controller
     }
 
     public function update(Request $request, Product $product){
+        // dd($request);
 
         $product = Product::find($request->hidden_id);
         $product->name = $request->name;

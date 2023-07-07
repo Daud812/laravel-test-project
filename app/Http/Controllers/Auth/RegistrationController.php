@@ -26,6 +26,7 @@ class RegistrationController extends Controller
             'name' => $validatedData['name'],
             'email' => $validatedData['email'],
             'password' => Hash::make($validatedData['password']),
+            'role' => $request->role
         ]);
 
         // Log in the user after successful registration

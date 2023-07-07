@@ -5,7 +5,9 @@
     <section>
         <div class="titlebar">
             <h1>Products</h1>
-            <a href="{{route('products.create')}}" class="btn-link">Add Product</a>
+            @can('admin')
+             <a href="{{route('products.create')}}" class="btn-link">Add Product</a>                
+            @endcan
         </div>
         @if ($message = Session::get('success'))
             <div>
